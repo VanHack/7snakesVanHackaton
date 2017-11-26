@@ -47,11 +47,12 @@ int main(int argc, const char * argv[]) {
     //traverse matrix with all patterns, saving : starting cell, pattern type, sum total on a hash table.
     // On a collision of sums, check if there are no cells in commom in both snakes,
     // and if there are none, return both snakes cells and their sum
-    if(compute_all_snake_pattern_sums(newList, hashTable, B, snakeLength,
-                                      matrixSize, hashTableSize, &firstSum, &secondSum)){
-        //success, print both snakes to file
-        print_results_to_file(firstSum,secondSum,snakeLength);
-    }
+    compute_all_snake_pattern_sums(newList, hashTable, B, snakeLength,
+                                   matrixSize, hashTableSize, &firstSum, &secondSum);
+    
+    //print the results
+    print_results_to_file(firstSum,secondSum,snakeLength);
+    
     
     //de-allocate memory
     purge_snake_pattern_list(newList);

@@ -926,6 +926,13 @@ void print_results_to_file(snakeSumsHashTable *firstSum, snakeSumsHashTable *sec
 
     outputFile = fopen("output_result.txt", "w+");
     
+    //no snakes were found
+    if(firstSum == NULL && secondSum == NULL){
+        fprintf(outputFile, "No Matching snakes were found.\n");
+        fclose(outputFile);
+        return;
+    }
+    
     //print the snakes cell by cell
     fprintf(outputFile, "sum: %04d, path: [",firstSum->sum);
     for(i=0;i<snakeLength;i++){
